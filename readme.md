@@ -2,6 +2,8 @@
 
 This script updates your Opera (web browser) extra media lib. In case this wasn't done before, it will also create the necessary directories (/usr/lib64/opera/lib_extra for the lib and a backup directory for older versions in ~/Downloads/libffmpeg_web).
 
+Only update the extra media lib, if videos suddenly stopped playing after an Opera update and clearing the cache didn't fix it. (information about clearing the cache can be found in the section below)
+
 Execute the script to update the extra media lib:
 
 ```bash
