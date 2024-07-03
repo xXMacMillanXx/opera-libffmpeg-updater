@@ -4,12 +4,13 @@ mkdir -p ~/Downloads/libffmpeg_web
 # variables
 json=$(curl -s https://api.github.com/repos/nwjs-ffmpeg-prebuilt/nwjs-ffmpeg-prebuilt/releases/latest)
 url=$(echo $json | jq -r '.assets[] | select(.browser_download_url | contains("linux-x64")) .browser_download_url')
-
-# download for backups in case something breaks
-wget -q $url --directory-prefix ~/Downloads/libffmpeg_web
+filename=$(echo $url | awk -F / '{print $NF}')
 
 # actual download to replace libffmpeg in opera directory
 wget -q $url -O temp.zip
+
+# copy downloaded file to keep as backup
+cp temp.zip ~/Downloads/libffmpeg_web/$filename
 
 # handle downloaded file
 unzip -q temp.zip
